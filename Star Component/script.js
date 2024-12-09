@@ -6,9 +6,8 @@ const Display = document.getElementById('count');
 let flag = false;
 
 StarContainer.addEventListener('mouseover', function (event) {
-    let val = Number(event.target.dataset.index)
-    fillstar(val);
-})
+    fillstar(Number(event.target.dataset.index));
+});
 
 StarContainer.addEventListener('mouseout', function () {
     if (!flag) {
@@ -16,17 +15,16 @@ StarContainer.addEventListener('mouseout', function () {
             ele.classList.remove('star-filled')
         })
     }
-})
+});
 
 
 StarContainer.addEventListener('click', function (event) {
-    let val = Number(event.target.dataset.index)
-    if (val) {
+    if (Number(event.target.dataset.index)) {
         flag = true;
-        fillstar(val)
+        fillstar(Number(event.target.dataset.index))
     }
-    Display.textContent = val;
-})
+    Display.textContent = Number(event.target.dataset.index);
+});
 
 
 function fillstar(index) {
