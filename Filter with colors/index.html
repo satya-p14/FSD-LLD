@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Management App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- TOOL BOX ELEMENTS -->
+    <div class="toolbox-cont">
+        <div class="toolbox-priority-cont">
+            <div class="lightpink color"></div>
+            <div class="lightgreen color"></div>
+            <div class="lightblue color"></div>
+            <div class="black color"></div>
+        </div>
+    </div>
+    <!-- MAIN CONTAINER - Tickets holder -->
+    <div class="main-cont">
+        <!-- <div class="ticket-cont">
+            <div class="ticket-color"></div>
+            <div class="ticket-id">id 1</div>
+            <div class="task-area"> this  is task 1</div>
+            <div class="ticket-lock">
+              <i class="fa-solid fa-lock"></i>
+           </div> -->
+    </div>
+    </div>
+    <!-- MODAL - Ticket generator window -->
+    <div class="modal-cont">
+        <textarea class="textArea-cont" placeholder="Enter Your Task" spellcheck="false">
+       </textarea>
+        <div class="priority-colors-container">
+            <div class="lightpink priority-color"></div>
+            <div class="lightgreen priority-color"></div>
+            <div class="lightblue priority-color"></div>
+            <div class="black priority-color active"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Write your solution here =====================================================
+        const colorsDiv = document.querySelectorAll(".color");
+        const main_task_container = document.querySelector(".main-cont");
+        colorsDiv.forEach(function (element) {
+            // Task 1
+            element.addEventListener("click", function () {
+                const filter_Color = element.classList[0];
+                main_task_container.innerHTML = "";
+                addTasks(filter_Color);
+            });
+            // Task 2
+            element.addEventListener("dblclick", function () {
+                main_task_container.innerHTML = "";
+                addAllTasks();
+            });
+        });
+
+        // task 1 helper function
+        function addTasks(filter_Color) {
+            ticketsArr.forEach(function (ticket) {
+                if (ticket.ticketColor == filter_Color) {
+                    createTicket(ticket.ticketTask, ticket.ticketColor, ticket.ticketID);
+                }
+            })
+        }
+
+        // task 2 helper function
+        function addAllTasks() {
+            ticketsArr.forEach(function (ticket) {
+                createTicket(ticket.ticketTask, ticket.ticketColor, ticket.ticketID);
+            });
+        }
+    </script>
+</body>
+</html>
